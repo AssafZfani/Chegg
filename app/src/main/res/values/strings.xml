@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">CheggHomework</string>
+    <string name="refresh_data">Go Go Go</string>
+
+    //Server Error
+    <string name="error_default_title">Oops, something went wrong</string>
+    <string name="error_default_message">Please try again later</string>
+    <string name="error_default_button">OK</string>
+
+    <string name="error_auth_title">Session expired</string>
+    <string name="error_auth_message">Please log in again</string>
+    <string name="error_auth_button">OK</string>
+
+    <string name="error_no_internet_title">Internet connection Error</string>
+    <string name="error_no_internet_message">Internet connection was lost</string>
+    <string name="error_no_internet_button">Try again</string>
+
+    <string name="error_unchecked">Error occurred</string>
+
+    // Content Description
+    <string name="article_image">Article Image</string>
+</resources>

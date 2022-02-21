@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "/Users/sw11/android-home-assignment/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/item_list_article.xml",
+        "source": "/Users/sw11/android-home-assignment/app/src/main/res/layout/item_list_article.xml"
+    },
+    {
+        "merged": "/Users/sw11/android-home-assignment/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/toolbar.xml",
+        "source": "/Users/sw11/android-home-assignment/app/src/main/res/layout/toolbar.xml"
+    },
+    {
+        "merged": "/Users/sw11/android-home-assignment/app/build/intermediates/incremental/mergeDebugResources/stripped.dir/layout/activity_main.xml",
+        "source": "/Users/sw11/android-home-assignment/app/src/main/res/layout/activity_main.xml"
+    }
+]

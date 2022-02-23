@@ -1,6 +1,6 @@
 package homework.chegg.com.chegghomework.data.repository.article
 
-import homework.chegg.com.chegghomework.data.events.articles.ResponsesEvent
+import homework.chegg.com.chegghomework.data.events.articles.ArticlesEvent
 import homework.chegg.com.chegghomework.data.local.Article
 import homework.chegg.com.chegghomework.data.network.service.CheggRetrofitService
 import homework.chegg.com.chegghomework.data.repository.ApiResult
@@ -14,9 +14,9 @@ class ArticlesRepositoryImpl(
         cheggRetrofitService.getArticlesA()
     }) {
         when (this) {
-            is ApiResult.Success -> ResponsesEvent.SuccessArticles(data.getArticleList())
-            is ApiResult.SuccessWithoutResponse -> ResponsesEvent.UncheckedError
-            is ApiResult.Error -> ResponsesEvent.Error(error)
+            is ApiResult.Success -> ArticlesEvent.SuccessArticles(data.getArticleList())
+            is ApiResult.SuccessWithoutResponse -> ArticlesEvent.UncheckedError
+            is ApiResult.Error -> ArticlesEvent.Error(error)
         }
     }
 
@@ -24,9 +24,9 @@ class ArticlesRepositoryImpl(
         cheggRetrofitService.getArticlesB()
     }) {
         when (this) {
-            is ApiResult.Success -> ResponsesEvent.SuccessArticles(data.getArticleList())
-            is ApiResult.SuccessWithoutResponse -> ResponsesEvent.UncheckedError
-            is ApiResult.Error -> ResponsesEvent.Error(error)
+            is ApiResult.Success -> ArticlesEvent.SuccessArticles(data.getArticleList())
+            is ApiResult.SuccessWithoutResponse -> ArticlesEvent.UncheckedError
+            is ApiResult.Error -> ArticlesEvent.Error(error)
         }
     }
 
@@ -34,11 +34,11 @@ class ArticlesRepositoryImpl(
         cheggRetrofitService.getArticlesC()
     }) {
         when (this) {
-            is ApiResult.Success -> ResponsesEvent.SuccessArticles(data.map {
+            is ApiResult.Success -> ArticlesEvent.SuccessArticles(data.map {
                 Article(it.topLine, it.subLine1 + it.subline2, it.image)
             })
-            is ApiResult.SuccessWithoutResponse -> ResponsesEvent.UncheckedError
-            is ApiResult.Error -> ResponsesEvent.Error(error)
+            is ApiResult.SuccessWithoutResponse -> ArticlesEvent.UncheckedError
+            is ApiResult.Error -> ArticlesEvent.Error(error)
         }
     }
 }

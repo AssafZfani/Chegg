@@ -3,7 +3,7 @@ package homework.chegg.com.chegghomework.ui
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import homework.chegg.com.chegghomework.data.events.articles.ResponsesEvent
+import homework.chegg.com.chegghomework.data.events.articles.ArticlesEvent
 import homework.chegg.com.chegghomework.data.local.Article
 import homework.chegg.com.chegghomework.data.network.entity.responses.ErrorResponse
 import homework.chegg.com.chegghomework.data.repository.article.ArticlesRepository
@@ -25,9 +25,9 @@ class MainViewModel(private val articlesRepository: ArticlesRepository) : ViewMo
         val errorList = mutableListOf<ErrorResponse>()
         awaitAll(articleA, articleB, articleC).forEach {
             when (it) {
-                is ResponsesEvent.SuccessArticles -> articleList.addAll(it.articleList)
-                is ResponsesEvent.Error -> errorList.add(it.error)
-                is ResponsesEvent.UncheckedError -> it.getMessage()
+                is ArticlesEvent.SuccessArticles -> articleList.addAll(it.articleList)
+                is ArticlesEvent.Error -> errorList.add(it.error)
+                is ArticlesEvent.UncheckedError -> it.getMessage()
             }
         }
         articlesLiveData.postValue(articleList)

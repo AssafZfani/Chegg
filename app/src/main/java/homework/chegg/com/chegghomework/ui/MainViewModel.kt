@@ -25,33 +25,7 @@ class MainViewModel(private val articlesRepository: ArticlesRepository) : ViewMo
         val errorList = mutableListOf<ErrorResponse>()
         awaitAll(articleA, articleB, articleC).forEach {
             when (it) {
-                is ResponsesEvent.SuccessArticlesA -> {
-                    articleList.addAll(it.articleAResponse.stories.map { articleA ->
-                        Article(
-                            articleA.title,
-                            articleA.subtitle,
-                            articleA.imageUrl
-                        )
-                    })
-                }
-                is ResponsesEvent.SuccessArticlesB -> {
-                    articleList.addAll(it.articleBResponse.metadata.innerdata.map { articleB ->
-                        Article(
-                            articleB.articlewrapper.header,
-                            articleB.articlewrapper.description,
-                            articleB.picture
-                        )
-                    })
-                }
-                is ResponsesEvent.SuccessArticlesC -> {
-                    articleList.addAll(it.articleCResponse.map { articleC ->
-                        Article(
-                            articleC.topLine,
-                            articleC.subLine1 + articleC.subline2,
-                            articleC.image
-                        )
-                    })
-                }
+                is ResponsesEvent.SuccessArticles -> articleList.addAll(it.articleList)
                 is ResponsesEvent.Error -> errorList.add(it.error)
                 is ResponsesEvent.UncheckedError -> it.getMessage()
             }
